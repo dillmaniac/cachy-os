@@ -1,0 +1,97 @@
+:experimental:
+:toc:
+:toclevels: 4 
+ifdef::env-github[]
+:icons:
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+=== Installation
+
+==== After booted into the CachyOS ISO
+. Launch the installer.
+. *Bootloader*: systemd-boot
+. *Partitions*: choose 3rd M2 / erase disk / btrfs
+. *Desktop*: Plasma Desktop
+. Check https://wiki.cachyos.org/configuration/post_install_setup/[CachyOS' official page]
+
+=== Software/Config
+
+==== Initial Setup via CachyOS-Hello/Apps-Tweaks
+===== Tweaks enabled
+- Profile-sync-dameon
+- Ananicy Cpp
+- Cachy Updates
+- Bpftune
+
+===== Fixes
+- Install Gaming packages
+- Install Snapper support
+- Rank Mirrors
+
+=== Tools/Apps (via pacman/paru)
+- mangohud / goverlay
+- openRazer / polychromatic
+- openRGB
+- LACT
+
+=== Steam
+[cols="1,1,1"]
+|===
+| Game | Compatibility |  Launch Options
+
+|Arc Raiders
+|Proton Cachyos SLR
+|PROTON_ENABLE_WAYLAND=1 WAYLANDDRV_PRIMARY_MONITOR=DP-2 PROTON_USE_NTSYNC=1 ENABLE_LAYER_MESA_ANTI_LAG=1 gamescope -f -w 2560 -h 1440 --force-grab-cursor -- %command% -useallavailablecores
+
+|LS25
+|Proton Cachyos SLR
+|PROTON_ENABLE_WAYLAND=1 WAYLANDDRV_PRIMARY_MONITOR=DP-2 PROTON_USE_NTSYNC=1 ENABLE_LAYER_MESA_ANTI_LAG=1 gamescope -f -w 2560 -h 1440 --force-grab-cursor -- %command% -useallavailablecores
+
+|Path of Exile 2
+|Proton Cachyos SLR
+|mangohud %command%
+|===
+
+=== LACT
+==== Installation
+. `sudo pacman -S lact && sudo systemctl enable --now lactd.service`
+. Open LACT/OC/Enable AMD Overclocking, reboot
+
+==== Settings (WiP)
+[cols="1,1,1,1"]
+|===
+| PowerLimit | GPU Clock | VRAM Clock | Voltage Offset 
+
+|305/402 W
+|27560 MHz
+|2680 MHz
+|-60 mV
+
+|===
+
+=== Flatpak
+
+==== Installation
+. Flatpaks/Flatseal/Bazaar: +
+* `sudo pacman -S flatpak && flatpak install flathub com.github.tchx84.Flatseal io.github.kolunmi.Bazaar`
+. Reboot
+
+==== Installed Flatpak-Apps:
+- Threema
+
+=== Firewall config (example AusweisApp)
+* create ufw config file for application: +
+`/etc/ufw/applications.d/ufw-ausweisapp`
+----
+[Ausweisapp]
+title=Ausweisapp
+description=Ausweisapp2
+ports=24724
+----
+* enable App: +
+`sudo ufw allow ausweisapp`
