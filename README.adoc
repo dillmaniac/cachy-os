@@ -38,6 +38,7 @@ endif::[]
 - openRazer / polychromatic
 - openRGB
 - LACT
+- CoolerControl
 
 === Steam
 [cols="1,1,1"]
