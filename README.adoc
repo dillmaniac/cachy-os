@@ -58,6 +58,16 @@ endif::[]
 |mangohud %command%
 |===
 
+=== CoolerControl
+- install: +
+* coolercontrol
+* coolercontrold
+* liquidctl
+- sudo systemctl enable --now coolercontrold
+- echo "nct6775" > /etc/modules-load.d/nct6775.conf (Module for ASUS B650E-F)
+
+
+
 === LACT
 ==== Installation
 . `sudo pacman -S lact && sudo systemctl enable --now lactd.service`
