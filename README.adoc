@@ -36,6 +36,7 @@ endif::[]
 === Tools/Apps (via pacman/paru)
 - mangohud / goverlay
 - openRazer / polychromatic
+paru -S --rebuild polychromatic openrazer-daemon python-openrazer python-cached-property python-pyrsistent
 - openRGB
 - LACT
 - CoolerControl
